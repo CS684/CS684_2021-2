@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Labs - CS684 Spring 2021</title>
+        <title>Lustre Resources - CS684 Spring 2021</title>
         
         
 
@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item "><a href="lustre_heptagon_installaton_instructions.html">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item "><a href="Lustre_resource.html">Lustre Resources</a></li><li class="chapter-item expanded "><a href="CS684_Labs.html" class="active">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item "><a href="CS684_Assignments.html">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item "><a href="lustre_heptagon_installaton_instructions.html">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item expanded "><a href="Lustre_resource.html" class="active">Lustre Resources</a></li><li class="chapter-item "><a href="CS684_Labs.html">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item "><a href="CS684_Assignments.html">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,57 +161,64 @@
                 <div id="content" class="content">
                     <main>
                         <center><h3><a class="header" href="#cs684-embedded-system-course" id="cs684-embedded-system-course">CS684: Embedded System Course</a></h3></center>
-<center><h4><a class="header" href="#labs" id="labs">Labs </a></h4></center>
-<hr />
+<center><h4><a class="header" href="#lustre_resources" id="lustre_resources">Lustre_Resources</a></h4></center>
+<hr>
+<h3><a class="header" href="#div-alignjustify-classmainblustre-resourcesbdiv" id="div-alignjustify-classmainblustre-resourcesbdiv"> <div align="justify" class="main"><b>Lustre Resources</b></div></a></h3>
+<hr>
+<p>Tutorial on Lustre: <a href="./resources/lustre_tutorial.pdf">Download</a></p>
+<p>SCADE Industrial: <a href="./resources/SCADEinIndustry.pdf">Download</a></p>
+<hr>
+<h3><a class="header" href="#div-alignjustify-classmainbreactive-kernel-exercisebdiv" id="div-alignjustify-classmainbreactive-kernel-exercisebdiv"> <div align="justify" class="main"><b>Reactive Kernel Exercise</b></div></a></h3>
+<hr>
 <ul>
-<li>Software
+<li>Download <a href="./resources/ReacK.zip">ReacK.zip</a>. Unzip it.</li>
+<li>The extracted folder ReacK contains reactive kernel code written in C by hand (by-hand folder) and synthesized to C from a high-level language (Heptagon, by-hept folder).</li>
+<li>by-hand has C code implemented for Minimum (min) and Minimum of Average (min_avg) which follows the structure of a reactive kernel. That is, it consists of a C file with step and reset functions forming the compute part and the main file (the entry point) that reads inputs from the console (sense), calls functions from the compute part and prints on the console (or actuate).</li>
+<li>by-hept implements Heptagon code for the same problems, which synthesizes to C code.</li>
+<li>Minimum takes an input x and finds minimum of the x’s seen so far.</li>
+<li>Minimum of Average takes inputs x and y and finds minimum of the average at each instance (x+y)/2 seen so far.</li>
+</ul>
+<p>Compiling and Running:</p>
 <ul>
-<li>IDE (Eclipse), SimulIDE, CoppeliaSim</li>
+<li>For min</li>
+</ul>
+<pre><code class="language-code">cd &lt;/path/to/Reack&gt;/by-hand/min
+gcc -c min.c
+gcc -c main.c
+gcc -o min main.o min.o
+./min
+</code></pre>
+<ul>
+<li>After running enter an integer value for x. The output should be the minimum of x entered since the start of the program. </li>
+<li>Repeat steps 1 and 2 for minimum of average.</li>
+</ul>
+<p>Exercise:</p>
+<ul>
+<li>Inspect and analyze the C codes, both written by hand and synthesized.</li>
+<li>Follow the same structure of C code to write a reactive kernel for finding:
+<ul>
+<li>Mean</li>
+<li>Variance</li>
 </ul>
 </li>
-<li>Basic Peripherals:
-<ul>
-<li>Introduction to AVR Controller</li>
-<li>GPIO, Motor Interfacing, PWM and ADC</li>
+<li>At each step, input is a single integer x. <a href="./resources/mean-var.pdf">Mean and Variance</a> has to be found for a sequence of x’s seen so far.</li>
 </ul>
-</li>
-<li>Adaptive Cruise Control - case study
-<ul>
-<li>using Embedded C programming </li>
-<li>using LUSTRE</li>
-</ul>
-</li>
-<li>RTOS
-<ul>
-<li>Basics of Real-time operating systems</li>
-<li>Practical example showing the effectiveness of RTOS</li>
-</ul>
-</li>
-</ul>
-<p>Lab Schedule:</p>
-<table><thead><tr><th align="center">Sr. No</th><th align="center">Lab</th></tr></thead><tbody>
-<tr><td align="center">0</td><td align="center">Installation of Software</td></tr>
-<tr><td align="center">1</td><td align="center">Bar-graph LEDs and Interrupt Switch Interfacing</td></tr>
-<tr><td align="center">2</td><td align="center">Speed Control using Phase Correct PWM Mode</td></tr>
-<tr><td align="center">3</td><td align="center">ADC Interfacing</td></tr>
-<tr><td align="center">4</td><td align="center">Case Study: Adaptive Cruise Control (Embedded C)</td></tr>
-<tr><td align="center">5</td><td align="center">Introduction to RTOS</td></tr>
-<tr><td align="center">6</td><td align="center">Case Study: Adaptive Cruise Control (Lustre)</td></tr>
-<tr><td align="center">7</td><td align="center">Case Study: Adaptive Cruise Control (Statecharts)</td></tr>
-</tbody></table>
+<blockquote>
+<p>Hint: You need to remember the number of steps, mean and mean of x^2, and update it at each step.</p>
+</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="Lustre_resource.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="Resources.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="CS684_Lab-1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="CS684_Labs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -223,13 +230,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="Lustre_resource.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="Resources.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="CS684_Lab-1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="CS684_Labs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

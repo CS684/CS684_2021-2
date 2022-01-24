@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Labs - CS684 Spring 2021</title>
+        <title>Installation of Lustre and Heptagon - CS684 Spring 2021</title>
         
         
 
@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item "><a href="lustre_heptagon_installaton_instructions.html">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item "><a href="Lustre_resource.html">Lustre Resources</a></li><li class="chapter-item expanded "><a href="CS684_Labs.html" class="active">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item "><a href="CS684_Assignments.html">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item expanded "><a href="lustre_heptagon_installaton_instructions.html" class="active">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item "><a href="Lustre_resource.html">Lustre Resources</a></li><li class="chapter-item "><a href="CS684_Labs.html">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item "><a href="CS684_Assignments.html">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -160,58 +160,180 @@
 
                 <div id="content" class="content">
                     <main>
-                        <center><h3><a class="header" href="#cs684-embedded-system-course" id="cs684-embedded-system-course">CS684: Embedded System Course</a></h3></center>
-<center><h4><a class="header" href="#labs" id="labs">Labs </a></h4></center>
-<hr />
+                        <center><h1><a class="header" href="#installation-guide" id="installation-guide"> Installation Guide</a></h1></center>
+<p>This document contains instructions to install following software/libraries on <strong>Ubuntu OS</strong>:</p>
 <ul>
-<li>Software
-<ul>
-<li>IDE (Eclipse), SimulIDE, CoppeliaSim</li>
+<li><strong>Lustre v4 Installation</strong></li>
+<li><strong>Heptagon Installation</strong> </li>
 </ul>
+<blockquote>
+<p>The installation of all software/libraries has been tested on <strong>Ubuntu 16.04</strong>, <strong>18.04</strong> and <strong>20.04</strong>. We recommend you to use one of these versions of <strong>Ubuntu OS</strong>. These software have to be installed <strong>ONLY ON 64-bit OS</strong>.</p>
+</blockquote>
+<h3><a class="header" href="#lustre-v4-installation" id="lustre-v4-installation">Lustre v4 Installation</a></h3>
+<ul>
+<li>
+<p>Please download the appropriate distribution of Lustre V4 from <a href="https://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/lustre-v4/distrib/index.html">here</a>.</p>
 </li>
-<li>Basic Peripherals:
-<ul>
-<li>Introduction to AVR Controller</li>
-<li>GPIO, Motor Interfacing, PWM and ADC</li>
-</ul>
+<li>
+<p>Once you download the distribution, extract the folder and make sure to copy the folder in following directory using command given below:</p>
+<pre><code>sudo cp -R lustre-v4-III-e-linux64 /usr/local/
+</code></pre>
 </li>
-<li>Adaptive Cruise Control - case study
+<li>
+<p>Now after unzipping and copying the tarball file, installation will be completed  by setting up two environment variables. </p>
 <ul>
-<li>using Embedded C programming </li>
-<li>using LUSTRE</li>
-</ul>
+<li>
+<p>You can go through the instructions provided in this <a href="https://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/lustre-v4/distrib/linux64/README">README</a>.</p>
 </li>
-<li>RTOS
+<li>
+<p>Or follow the following steps:</p>
+</li>
+<li>
+<p>Add <strong><code>Lustre V4</code></strong> to your shell's configuration, considering that your shell type is <code>Bash</code> enter the below lines in <code>~/.bashrc</code> file as below. First open the <code>.bashrc</code> file in any editor like Nano, Gedit, etc.</p>
+</li>
+</ul>
+<pre><code>export LUSTRE_INSTALL=/usr/local/lustre-v4-III-e-linux64
+source $LUSTRE_INSTALL/setenv.sh
+</code></pre>
+<center><img src="https://raw.githubusercontent.com/rutujaekatpure/CS684_Labs/main/Images/lustr_intsllation_bashrc.png"></center>
+  <center>Figure: Configure Lustre V4 in your shell, like Bash</center>
+<br>
 <ul>
-<li>Basics of Real-time operating systems</li>
-<li>Practical example showing the effectiveness of RTOS</li>
+<li>After configuring Lustre in your shell, run the following command to source the configuration. </li>
 </ul>
+<pre><code>source ~/.bashrc
+</code></pre>
+</li>
+<li>
+<p>That was alll for <strong><code>Lustre V4</code></strong> installation. </p>
 </li>
 </ul>
-<p>Lab Schedule:</p>
-<table><thead><tr><th align="center">Sr. No</th><th align="center">Lab</th></tr></thead><tbody>
-<tr><td align="center">0</td><td align="center">Installation of Software</td></tr>
-<tr><td align="center">1</td><td align="center">Bar-graph LEDs and Interrupt Switch Interfacing</td></tr>
-<tr><td align="center">2</td><td align="center">Speed Control using Phase Correct PWM Mode</td></tr>
-<tr><td align="center">3</td><td align="center">ADC Interfacing</td></tr>
-<tr><td align="center">4</td><td align="center">Case Study: Adaptive Cruise Control (Embedded C)</td></tr>
-<tr><td align="center">5</td><td align="center">Introduction to RTOS</td></tr>
-<tr><td align="center">6</td><td align="center">Case Study: Adaptive Cruise Control (Lustre)</td></tr>
-<tr><td align="center">7</td><td align="center">Case Study: Adaptive Cruise Control (Statecharts)</td></tr>
-</tbody></table>
+<h3><a class="header" href="#heptagon-installation" id="heptagon-installation">Heptagon Installation</a></h3>
+<ul>
+<li>
+<p>First step is to install opam which is a source-based package manager for OCaml. It supports multiple simultaneous compiler installations, flexible package constraints, and a Git-friendly development workflow.</p>
+</li>
+<li>
+<p>To install opam run the following command in your terminal.</p>
+<pre><code>sh &lt;(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
+
+</code></pre>
+</li>
+<li>
+<p>Next we will have to install some prerequisite libraries, to install same run the below command in your terminal.</p>
+<pre><code>sudo apt-get install -y m4 make wget patch unzip bubblewrap git g++
+</code></pre>
+<blockquote>
+<p>If you cannot find Bubblewrap (ISSUE on 16.04), install it from http://ftp.ubuntu.com/ubuntu/pool/universe/b/bubblewrap/ and then continue with the rest of the steps.</p>
+</blockquote>
+</li>
+<li>
+<p>After this we need to install Heptagon and it's dependencies. To do the same run the following commands:</p>
+<blockquote>
+<p>NOTE: You have to execute all these commands in the same terminal session.</p>
+</blockquote>
+<pre><code>opam init
+</code></pre>
+<ul>
+<li>After running the above command it should automatically source <code>~/.bash_profile</code> or <code>~/.profile</code> by defualt. If it doesn't you need to source either of the file manually. It will be specified in the text you get after running opam init. </li>
+</ul>
+<pre><code>eval $(opam env)
+</code></pre>
+<pre><code>opam switch create 4.03.0
+</code></pre>
+<pre><code>eval $(opam env)
+</code></pre>
+<ul>
+<li>Install few more libraries using following commands:</li>
+</ul>
+<pre><code>sudo apt-get install libgtk2.0-dev
+</code></pre>
+<pre><code>opam install menhir lablgtk ocamlgraph ocamlbuild camlp4
+</code></pre>
+</li>
+<li>
+<p>Next we need to download <a href="https://drive.google.com/file/d/1Ru1kdpqEAKQ-BJX_QyQpbGsxy7fqpWaI/view"><strong><code>Hetpagon</code></strong></a> and unzip it. </p>
+</li>
+<li>
+<p>After unzipping the folder, run the following commands in your terminal:</p>
+<pre><code>cd &lt;/path/to/where/you/unzipped&gt;/heptagon-1.05.00/
+</code></pre>
+<pre><code>./configure &amp;&amp; make
+</code></pre>
+<pre><code>sudo make install
+</code></pre>
+</li>
+<li>
+<p>You have Heptagon installed in your system. You should have “heptc” and “hepts” binaries linked to your path. You can verify that by autocompleting on “heptc” or “hepts” or by typing it on the terminal.</p>
+</li>
+</ul>
+<blockquote>
+<p>Note: The simulator “hepts” depends on “sim2chro” so you must have Lustre v4 installed to be able to use it.</p>
+</blockquote>
+<h3><a class="header" href="#testing" id="testing">Testing</a></h3>
+<ul>
+<li>
+<p>Now to test installation follow the steps given below.</p>
+<ul>
+<li>
+<p>Download the following files:</p>
+<ol>
+<li><a href="./resources/try1.ept"><code>try1.ept</code></a></li>
+<li><a href="./resources/simulate.sh"><code>simulate.sh</code></a></li>
+</ol>
+<blockquote>
+<p><code>simulate.sh</code> is utility script for simulating Heptagon nodes.</p>
+</blockquote>
+</li>
+<li>
+<p>After downloading above files make sure to run following in the directory where you have downloaded <code>simulate.sh</code>.</p>
+</li>
+</ul>
+<pre><code>chmod u+x simulate.sh
+</code></pre>
+<ul>
+<li>After everything is in place let's simulate our heptagon node. To do same we need to execute <code>simulate.sh</code> with name of the node and path to heptagon file.</li>
+</ul>
+<pre><code>simulate.sh -s &lt;name-of-node&gt; -p &lt;/path/to/heptagon/code.ept&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>simulate.sh -s minsquare -p try1.ept
+</code></pre>
+<ul>
+<li>Optionally you can put this script in your path and use it from anywhere. At the end of your ~/.bashrc or ~/.bash_profile, add following.</li>
+</ul>
+<pre><code>export PATH=&quot;$PATH:/home/erts/Course/Test/&quot;
+</code></pre>
+<center><img src="https://raw.githubusercontent.com/rutujaekatpure/CS684_Labs/main/Images/heptagon_export.png"/></center>
+  <center>Figure: Adding path of simulate.sh</center>
+<ul>
+<li>
+<p>where simulate.sh is contained in /home/erts/Course/Test directory</p>
+</li>
+<li>
+<p>Finally run the following command to simulate our heptagon node. </p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code>simulate.sh -s minsquare -p try1.ept 
+</code></pre>
+<center><img src="https://raw.githubusercontent.com/rutujaekatpure/CS684_Labs/main/Images/heptagon_test_simulation.png"/></center>
+  <center>Figure: Heptagon node simulation</center> 
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="Lustre_resource.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="Installation_instructions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="CS684_Lab-1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="Resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -223,13 +345,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="Lustre_resource.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="Installation_instructions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="CS684_Lab-1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="Resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
