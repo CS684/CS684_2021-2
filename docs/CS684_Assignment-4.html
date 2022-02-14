@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Assignments - CS684 Spring 2021</title>
+        <title>Assignment 4 - CS684 Spring 2021</title>
         
         
 
@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item "><a href="lustre_heptagon_installaton_instructions.html">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item "><a href="Lustre_resource.html">Lustre Resources</a></li><li class="chapter-item "><a href="CS684_Labs.html">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item expanded "><a href="CS684_Assignments.html" class="active">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li><li class="chapter-item "><a href="CS684_Assignment-3.html">Assignment 3</a></li><li class="chapter-item "><a href="CS684_Assignment-4.html">Assignment 4</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="Welcome.html">Welcome</a></li><li class="chapter-item "><a href="Installation_instructions.html">Installation Instructions</a></li><li class="chapter-item "><a href="lustre_heptagon_installaton_instructions.html">Installation of Lustre and Heptagon</a></li><li class="chapter-item "><a href="Resources.html">Lab Resources</a></li><li class="chapter-item "><a href="Lustre_resource.html">Lustre Resources</a></li><li class="chapter-item "><a href="CS684_Labs.html">Labs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Lab-1.html">Lab 1</a></li><li class="chapter-item "><a href="CS684_Lab-2.html">Lab 2</a></li><li class="chapter-item "><a href="CS684_Lab-3.html">Lab 3</a></li></ol></li><li class="chapter-item expanded "><a href="CS684_Assignments.html">Assignments</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="CS684_Assignment-1.html">Assignment 1</a></li><li class="chapter-item "><a href="CS684_Assignment-2.html">Assignment 2</a></li><li class="chapter-item "><a href="CS684_Assignment-3.html">Assignment 3</a></li><li class="chapter-item expanded "><a href="CS684_Assignment-4.html" class="active">Assignment 4</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,30 +161,109 @@
                 <div id="content" class="content">
                     <main>
                         <center><h3><a class="header" href="#cs684-embedded-system-course" id="cs684-embedded-system-course">CS684: Embedded System Course</a></h3></center>
-<center><h4><a class="header" href="#assignments" id="assignments">Assignments </a></h4></center>
+<center><h4><a class="header" href="#assignment-4-lustreheptagon" id="assignment-4-lustreheptagon">Assignment 4: Lustre/Heptagon </a></h4></center>
 <hr />
-<p>Assignment Schedule:</p>
-<table><thead><tr><th align="center">Sr. No</th><th align="center">Lab</th><th align="center">Deadline</th></tr></thead><tbody>
-<tr><td align="center">1</td><td align="center">Finite State Machine - Model Based Design</td><td align="center">January 23, 2022</td></tr>
-<tr><td align="center">2</td><td align="center">Statecharts - Model Based Design</td><td align="center">January 30, 2022</td></tr>
-<tr><td align="center">3</td><td align="center">Lustre/Heptagon - 1</td><td align="center">-</td></tr>
-<tr><td align="center">4</td><td align="center">Lustre/Heptagon - 2</td><td align="center">-</td></tr>
+<h4><a class="header" href="#problem-statements" id="problem-statements">PROBLEM STATEMENTS</a></h4>
+<p><strong><code>Q1.</code></strong></p>
+<p>Consider the following node which is a variant of the node discussed  in the class. The change is that the transitions are of then type here instead of the continue type as shown in class. Hence the behaviour of the automaton differs. </p>
+<p>Complete the table below giving the output of this node for the first  10 cycles in a table. Also give the start state (ST) and then next state (NS) for each of these cycles. </p>
+<pre><code class="language-code">node myautomaton() returns (y:int; stup:bool; v:int)
+var last x:int = 2;
+let
+    y = x; 
+    automaton
+        state Up
+                 var w:int; 
+                 do x = (last x) + 1; stup = true;
+                    w = 0 -&gt; pre(w)+1; v=w;
+        until  x &gt;= 5 then Down
+        state Down
+            var w:int;
+            do x = (last x) - 1;  stup = false;
+            w = 50 -&gt; pre(w)-2; v=w;
+        until x &lt;= 3 then Up
+    end
+tel
+</code></pre>
+<table><thead><tr><th align="center">Flow Cycle</th><th align="left">0</th><th align="left">1</th><th align="left">2</th><th align="left">3</th><th align="left">4</th><th align="left">5</th><th align="left">6</th><th align="left">7</th><th align="left">8</th><th align="left">9</th><th align="center">10</th></tr></thead><tbody>
+<tr><td align="center">ST State</td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="center"></td></tr>
+<tr><td align="center">Y</td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="center"></td></tr>
+<tr><td align="center">v</td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="center"></td></tr>
+<tr><td align="center">stup</td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="center"></td></tr>
+<tr><td align="center">NS State</td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="center"></td></tr>
 </tbody></table>
+<p><strong><code>Q2.</code></strong> </p>
+<p>Consider the node <strong>myautomanton</strong> given below. Try to understand its structure.  How many distinct modes does it have? Explain how you came up with this number.</p>
+<p>Simulate it using the Heptagon Compiler/simulator. Give an input sequence to the node which makes this automaton visit following states (with additional states allowed in between them): </p>
+<p>State1, ..., TMP11,  ...,  (State2_1||State2_2), ..., State2, ..., State4, ... 
+(Here  notation  (S||T) shows that the automaton is simultaneously in states S and T in the same cycle due to concurrency.)</p>
+<p>Give the output of the simulation produced by Heptagon simulator for your input. For each cycle of this simulation, manually add the Start state, Active State as well as Next state to the output. </p>
+<pre><code class="language-code">node myautomaton(i1: bool; i2: bool; i3: bool; i4: bool)
+  returns (o1: bool; o2: bool; o3: bool; o4: bool)
+let
+  automaton
+    state State1
+      do o1 = false; o2 = false; o3 = false; o4 = false
+      until i1 then TMP12
+      unless i2 then TMP11
+
+    state TMP11
+      do o1 = false; o2 = true; o3 = false; o4 = false;
+      until true then State3
+
+    state TMP12
+      do o1 = true; o2 = true; o3 = false; o4 = false;
+      until true then State2
+
+    state State3
+      var last end1: bool = false; last end2: bool = false;
+      do o1 = false; o2 = false; o3 = false; o4 = false;
+         automaton
+           state State1_1
+             do until i3 then State2_1
+           state State2_1
+             do end1 = true;
+         end;
+         automaton
+           state State1_2
+             do unless i4 then State2_2
+           state State2_2
+             do end2 = true
+         end
+       until end1 &amp; end2 then State1
+       unless i1 then State4
+          |   i2 then State2
+
+    state State2
+       var l1: bool;
+       do o1 = false; o2 = false; o3 = false; o4 = l1; l1 = true;
+       until i4 then State4
+
+    state State4
+       var l2: bool;
+       do o1 = false; o2 = false; o3 = l2; o4 = false; l2 = true;
+       until i4 then State1
+    end
+tel
+</code></pre>
+<p><strong><code>Q3.</code></strong> </p>
+<p>Model a Gas Burner Controller as a Heptagon node     <code>(Code required)</code></p>
+<p><code>node controller(flame: bool; sec: bool) returns (gas: bool; spark: bool)</code></p>
+<p>to meet the following requirements. Preferably Use the automaton construct. </p>
+<p><em>“Controller keeps gas on/off using the output gas and strikes a flame using the output spark. It can detect whether flame is on/off using input flame. Flow sec is a second beacon. It is true at each clock cycle where one second has elapsed since the previous such value. Flame will not occur unless the gas has accumulated for at least 15 seconds. Not every spark results in flame. Flame also occasionally goes off due to wind. Making a spark after Gas has leaked for more than 60 seconds causes an explosion.  Hence, after a leakage longer than 60 seconds, the Gas must be turned off and allowed to dissipate for 120 seconds to reach a safe state.  The controller should try to keep the flame on as much as possible.”</em></p>
+<p>Please explain your design. Simulate your code using the Heptagon simulator for various sample inputs and submit the output produced.</p>
+<hr />
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="CS684_Lab-3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="CS684_Assignment-3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="CS684_Assignment-1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -194,15 +273,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="CS684_Lab-3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="CS684_Assignment-3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="CS684_Assignment-1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
